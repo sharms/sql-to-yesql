@@ -9,5 +9,33 @@ Load sql-to-yesql.clj up in your Clojure REPL instance and define two variables:
 (def output-directory "/Users/sharms/Projects/clj/techstack/resources/sql")
 ```
 
-The script will then take anything with 'create' in the name that ends in 'sql', and search for "CREATE TABLE"
+The script will take anything with 'create' in the name that ends in 'sql', and search for "CREATE TABLE"
 statements.  If it finds them, it will output CRUD YeSQL queries in output-directory
+
+To run it just call the create-yesql-queries function:
+```
+(create-yesql-queries
+```
+
+When you check out output-directory, it will contain YeSQL formatted crud operations like:
+
+```
+-- name: create-business!
+-- create a new business
+INSERT INTO business (id, description, variance_id) VALUES (:id, :description, :variance_id)
+
+-- name: get-business
+SELECT * FROM business
+WHERE id = :id
+
+-- name: get-all-business
+SELECT * FROM business
+
+-- name:update-business!
+UPDATE business SET
+description = :description, variance_id = :variance_id
+WHERE id = :id
+
+-- name:delete-business!
+DELETE FROM business WHERE id = :id
+```
