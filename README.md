@@ -1,6 +1,9 @@
 # sql-to-yesql
 Creates CRUD YeSQL queries from SQL CREATE TABLE statements
 
+# What is this?
+If you create a website using the [Luminus Web Framework](http://www.luminusweb.net), you will probably want a database to make your website interactive.  YeSQL is the default way to create easy to use functions to access the database.  This framework takes the migrations you create in /resources/migrations and will generate simple queries for CRUD operations for you.
+
 # Usage
 Load sql-to-yesql.clj up in your Clojure REPL instance and define two variables:
 
