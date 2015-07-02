@@ -51,14 +51,14 @@
         fields-assigned (map #(interpose " = " %) fields-joined)
         updates-line (apply str (flatten (interpose ", " fields-assigned)))]
     (.write wrtr  (apply str 
-                         (str "-- name:update-" table-name "!\n")
+                         (str "-- name: update-" table-name "!\n")
                          (str "UPDATE " table-name " SET\n")
                          (str updates-line "\n")
                          (str "WHERE id = :id\n\n")))))
 
 (defn crud-delete [wrtr schema]
   (let [table-name (:table-name schema)]
-    (.write wrtr  (apply str (str "-- name:delete-" table-name "!\n")
+    (.write wrtr  (apply str (str "-- name: delete-" table-name "!\n")
                          (str "DELETE FROM " table-name " WHERE id = :id\n\n")))))
 
 (defn parse-line [sql line]

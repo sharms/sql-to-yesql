@@ -34,11 +34,11 @@ WHERE id = :id
 -- name: get-all-business
 SELECT * FROM business
 
--- name:update-business!
+-- name: update-business!
 UPDATE business SET
 description = :description, variance_id = :variance_id
 WHERE id = :id
 
--- name:delete-business!
+-- name: delete-business!
 DELETE FROM business WHERE id = :id
 ```
