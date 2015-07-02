@@ -17,7 +17,7 @@ statements.  If it finds them, it will output CRUD YeSQL queries in output-direc
 
 To run it just call the create-yesql-queries function:
 ```
-(create-yesql-queries
+(create-yesql-queries)
 ```
 
 When you check out output-directory, it will contain YeSQL formatted crud operations like:
